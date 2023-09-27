@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SecureNote</string>
+    <string name="login">Login</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="biometric_error_security_update_required">Biometric features are unavailable because security vulnerabilities has been discovered in one or more hardware sensors</string>
+    <string name="no_biometric_info">No biometric information found on this device.</string>
+    <string name="biometric_features_currently_unavailable">Biometric features are currently unavailable.</string>
+    <string name="no_biometric_features_available">No biometric features available on this device.</string>
+    <string name="biometric_login">Biometric login</string>
+    <string name="login_using">Log in using Fingerprint, Face or Password</string>
+    <string name="authentication_failed">Authentication failed</string>
+    <string name="authentication_error">Authentication error</string>
 </resources>

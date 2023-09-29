@@ -8,10 +8,12 @@ import com.far.securenote.common.PresentationModule
 
 open class BaseActivity: AppCompatActivity() {
 
-    private val activityModule by lazy{
-        ActivityModule(this)
+    private val applicationModule get() = (application as MyApplication).applicationModule
+    //for fragments
+    val activityModule by lazy{
+        ActivityModule(this, applicationModule)
     }
-    val presentationModule by lazy{
+    protected val presentationModule by lazy{
         PresentationModule(activityModule)
     }
 

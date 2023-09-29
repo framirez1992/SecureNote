@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.Notes"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingHorizontal="20dp"
+        android:visibility="visible">
+
+        <com.far.securenote.view.common.CustomButton
+            android:id="@+id/btnAddNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/baseline_save"
+            app:iconColor="@color/white"
+            app:iconBackground="@color/purple_500"
+            app:size="MEDIUM"
+            app:shape="STANDARD"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <com.far.securenote.view.common.CustomButton
+            android:id="@+id/btnEditNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/edit_24px"
+            app:iconColor="@color/black"
+            app:iconBackground="@color/amber_title"
+            app:size="MEDIUM"
+            app:shape="STANDARD"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.far.securenote.view.common.CustomButton
+            android:id="@+id/btnDeleteNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            app:layout_constraintEnd_toStartOf="@id/btnEditNote"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/delete_24px"
+            app:iconColor="@color/white"
+            app:iconBackground="@color/red_500"
+            app:size="MEDIUM"
+            app:shape="STANDARD"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include android:id="@+id/colorPicker"
+        layout="@layout/color_picker"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="@string/title"
+                android:textStyle="bold"
+                android:paddingTop="30dp"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/dark_gray"
+                android:selectAllOnFocus="true"
+                android:background="@color/transparent"
+                style="@style/NotesEditText"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black"
+                android:alpha="0.2"/>
+
+            <EditText android:id="@+id/etBody"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:hint="@string/write_here"
+                android:gravity="start"
+                android:inputType="textMultiLine"
+                android:paddingBottom="20dp"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@color/transparent"
+                style="@style/NotesEditText"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

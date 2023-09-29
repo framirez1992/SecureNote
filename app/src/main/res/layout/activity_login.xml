@@ -19,15 +19,19 @@
         android:src="@mipmap/ic_launcher"/>
 
 
-    <Button android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+    <com.far.securenote.view.common.CustomButton android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgLogo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.1"/>
+        app:layout_constraintVertical_bias="0.1"
+        app:icon="@drawable/baseline_fingerprint_24"
+        app:iconBackground="@color/purple_500"
+        app:iconColor="@color/white"
+        app:shape="ROUNDED"
+        app:size="LARGE"/>
 
 
 

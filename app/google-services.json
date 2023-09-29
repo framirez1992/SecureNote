@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "102146732486",
+    "firebase_url": "https://note-5ca24-default-rtdb.firebaseio.com",
+    "project_id": "note-5ca24",
+    "storage_bucket": "note-5ca24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102146732486:android:f34b6cef086dfd1f5882c7",
+        "android_client_info": {
+          "package_name": "com.far.securenote"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCq_fVtYsivWwU7V-iQNvOWE06eULdC9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

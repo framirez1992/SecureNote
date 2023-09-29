@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainScreen"
+    android:paddingTop="40dp"
+    android:background="@color/purple_500"
+    android:orientation="vertical">
+
+
+
+      <androidx.appcompat.widget.LinearLayoutCompat
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:paddingHorizontal="20dp">
+
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:paddingHorizontal="10dp"
+              android:background="@drawable/rounded_corners">
+
+              <com.google.android.material.textfield.TextInputEditText
+                  android:id="@+id/etSearch"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/search"
+                  android:maxLines="1"
+                  android:inputType="text"
+                  android:scrollHorizontally="true"
+                  android:ellipsize="end"
+                  android:background="@drawable/rounded_corners"/>
+
+          </com.google.android.material.textfield.TextInputLayout>
+
+
+          <View
+              android:layout_width="15dp"
+              android:layout_height="0dp"/>
+
+          <com.far.securenote.view.common.CustomButton
+              android:id="@+id/btnSearch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:icon="@drawable/baseline_search"
+              app:iconColor="@color/purple_500"
+              app:iconBackground="@color/white"
+              app:shape="STANDARD"
+              app:size="MEDIUM"
+              android:layout_marginTop="5dp"/>
+
+
+
+      </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_200"/>
+
+        <com.far.securenote.view.common.CustomButton
+            android:id="@+id/btnAddNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/baseline_add"
+            app:iconColor="@color/white"
+            app:iconBackground="@color/purple_500"
+            app:size="LARGE"
+            app:shape="ROUNDED"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

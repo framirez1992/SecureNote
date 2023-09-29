@@ -1,16 +1,15 @@
 package com.far.securenote.common
 
+import com.far.securenote.model.NoteService
 import com.far.securenote.view.common.BaseActivity
 //import dagger.Module
 //import dagger.Provides
 
 //@Module
-class PresentationModule(val activityModule:ActivityModule) {
+class PresentationModule(private val activityModule:ActivityModule) {
 
-    //@Provides
-    fun activity() = activityModule.activity
 
-    //@Provides
-    fun biometricManager()= activityModule.biometricManager()
-
+    val biometricManager get() = activityModule.biometricManager
+    val screenNavigator get() = activityModule.screenNavigator
+    val noteService  get() = NoteService(activityModule.fireBaseDB)
 }

@@ -19,7 +19,7 @@ class Login : BaseActivity() {
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(_binding.root)
 
-        biometricManager = presentationModule.biometricManager()
+        biometricManager = presentationModule.biometricManager
         biometricManager.setListeners(object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int,errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
@@ -40,7 +40,6 @@ class Login : BaseActivity() {
 
 
         _binding.btnLogin.setOnClickListener {
-            presentationModule.biometricManager()
             biometricManager.checkAuthenticationAvailability()
         }
 

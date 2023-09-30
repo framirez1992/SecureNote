@@ -10,6 +10,16 @@ class NoteService(private val db:FirebaseFirestore) {
         notesRef.document().set(note)
     }
 
+   suspend fun batchInsertNote(notes:List<Note>){//Save local until the device has an internet connection
+       val batch = db.batch()
+       val notesRef = db.collection("notes")
+       notes.forEach{
+           var docRef =notesRef.document()
+           batch.set(docRef,it)
+       }
+       batch.commit().await()
+    }
+
     fun updateNote(note:Note){//Save local until the device has an internet connection
         val documentReference = db.document("notes/${note.docRef}")
         documentReference.update(
@@ -24,6 +34,7 @@ class NoteService(private val db:FirebaseFirestore) {
         val documentReference = db.document("notes/${note.docRef}")
         documentReference.delete()
     }
+
 
 
     suspend fun getNotes(search: String): List<Note> {//Try to search for transactions online, after a few seconds if you don't have internet, search locally

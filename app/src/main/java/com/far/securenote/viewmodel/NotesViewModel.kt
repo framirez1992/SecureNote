@@ -2,14 +2,8 @@ package com.far.securenote.viewmodel
 
 import androidx.lifecycle.*
 import com.far.securenote.contants.Colors
-import com.far.securenote.model.Note
-import com.far.securenote.model.NoteAddState
-import com.far.securenote.model.NoteService
-import com.far.securenote.model.OperationResult
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeout
+import com.far.securenote.model.*
+import kotlinx.coroutines.*
 import java.util.UUID
 
 
@@ -42,7 +36,7 @@ class NotesViewModel(private val noteService: NoteService,note:Note?): ViewModel
 
 
     fun saveNote(){
-        _state.value= _state.value?.copy(loading = true, operationResult = null)
+            _state.value= _state.value?.copy(loading = true, operationResult = null)
            viewModelScope.launch {
                try {
                    //10 seconds
@@ -57,7 +51,7 @@ class NotesViewModel(private val noteService: NoteService,note:Note?): ViewModel
                    operationResult("01")
                }
                catch (ex:Exception){
-                   operationResult("99")
+                   operationResult("99",ex.message!!)
                }
 
            }
@@ -79,7 +73,7 @@ class NotesViewModel(private val noteService: NoteService,note:Note?): ViewModel
                 operationResult("01")
             }
             catch (ex:Exception){
-                operationResult("99")
+                operationResult("99",ex.message!!)
             }
 
         }
@@ -101,11 +95,12 @@ class NotesViewModel(private val noteService: NoteService,note:Note?): ViewModel
                 operationResult("01")
             }
             catch (ex:Exception){
-                operationResult("99")
+                operationResult("99",ex.message!!)
             }
 
         }
     }
+
 
     private fun operationResult(code:String){
         operationResult(code,"")

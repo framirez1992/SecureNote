@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.BulkInsertNote">
+
+    <TextView android:id="@+id/tvScreenTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:text="@string/bonus_screen"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:background="@color/purple_500"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:text="@string/notes_batch_insert"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:background="@color/purple_500"
+        android:layout_below="@id/tvScreenTitle"/>
+
+    <com.far.securenote.view.common.CustomButton
+        android:id="@+id/btnSearchFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:icon="@drawable/baseline_search"
+        app:iconColor="@color/white"
+        app:iconBackground="@color/purple_500"
+        app:size="LARGE"
+        app:shape="ROUNDED"/>
+
+    <TextView android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_note_file"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_below="@id/btnSearchFile"
+        android:gravity="center"
+        android:padding="20dp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:background="@color/purple_500"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

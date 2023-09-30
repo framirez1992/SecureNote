@@ -16,6 +16,22 @@
         android:visibility="visible">
 
         <com.far.securenote.view.common.CustomButton
+            android:id="@+id/btnBulkInsertNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/btnAddNote"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="20dp"
+            app:icon="@drawable/upload_file_24px"
+            app:iconColor="@color/white"
+            app:iconBackground="@color/green_500"
+            app:size="MEDIUM"
+            app:shape="STANDARD"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.far.securenote.view.common.CustomButton
             android:id="@+id/btnAddNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

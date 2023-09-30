@@ -1,5 +1,6 @@
 package com.far.securenote.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -99,6 +100,10 @@ class Notes : BaseFragment() {
             updateNoteText()
             viewModel.saveNote()
         }
+
+        _binding.btnBulkInsertNotes.setOnClickListener{
+            startActivity(Intent(context,BulkInsertNote::class.java))
+        }
         _binding.btnEditNote.setOnClickListener {
             if (!validateNote())
                 return@setOnClickListener
@@ -114,6 +119,7 @@ class Notes : BaseFragment() {
         viewModel.state.observe(this){
             processOperationResul(it.operationResult)
             _binding.btnAddNote.setLoading(it.loading)
+            _binding.btnBulkInsertNotes.setLoading(it.loading)
             _binding.btnEditNote.setLoading(it.loading)
             _binding.btnDeleteNote.setLoading(it.loading)
             enableViews(!it.loading)
@@ -147,6 +153,7 @@ class Notes : BaseFragment() {
         _binding.etTitle.isEnabled = enable
         _binding.etBody.isEnabled = enable
         _binding.btnAddNote.isEnabled = enable
+        _binding.btnBulkInsertNotes.isEnabled = enable
         _binding.colorPicker.btnAmber.isEnabled = enable
         _binding.colorPicker.btnBlack.isEnabled = enable
         _binding.colorPicker.btnBlue.isEnabled = enable
@@ -184,8 +191,11 @@ class Notes : BaseFragment() {
 
     private fun showButtons(newNote:Boolean){
         _binding.btnAddNote.visibility = if(newNote)View.VISIBLE else View.GONE
+        _binding.btnBulkInsertNotes.visibility = if(newNote)View.VISIBLE else View.GONE
         _binding.btnEditNote.visibility = if(newNote)View.GONE else View.VISIBLE
         _binding.btnDeleteNote.visibility = if(newNote)View.GONE else View.VISIBLE
     }
+
+
 
 }

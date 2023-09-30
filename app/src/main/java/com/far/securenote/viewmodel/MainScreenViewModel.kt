@@ -9,7 +9,7 @@ import kotlinx.coroutines.withTimeout
 
 class MainScreenViewModel(private var noteService:NoteService):ViewModel() {
 
-    private var _state = MutableLiveData<MainScreenState>()
+    private val _state = MutableLiveData<MainScreenState>()
     val state:LiveData<MainScreenState> = _state
 
     init {

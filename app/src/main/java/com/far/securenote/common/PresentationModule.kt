@@ -11,5 +11,6 @@ class PresentationModule(private val activityModule:ActivityModule) {
 
     val biometricManager get() = activityModule.biometricManager
     val screenNavigator get() = activityModule.screenNavigator
+    val fileManager get() = activityModule.fileManager
     val noteService  get() = NoteService(activityModule.fireBaseDB)
 }

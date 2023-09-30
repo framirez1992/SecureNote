@@ -14,6 +14,9 @@ class ActivityModule(
     val screenNavigator by lazy {
         ScreenNavigator(baseActivity)
     }
+    val fileManager by lazy {
+        FileManager(baseActivity)
+    }
 
     val fireBaseDB get() = applicationModule.fireBaseDB
 }

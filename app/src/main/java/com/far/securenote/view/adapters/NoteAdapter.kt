@@ -1,10 +1,9 @@
-package com.far.securenote.view
+package com.far.securenote.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.ColorRes
 import androidx.recyclerview.widget.RecyclerView
-import com.far.securenote.R
 import com.far.securenote.contants.Colors
 import com.far.securenote.databinding.NoteItemBinding
 import com.far.securenote.model.Note

@@ -2,12 +2,14 @@ package com.far.securenote.viewmodel
 
 import androidx.lifecycle.*
 import com.far.securenote.model.*
+import com.far.securenote.model.services.NoteService
+import com.far.securenote.model.viewStates.MainScreenState
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
 
-class MainScreenViewModel(private var noteService:NoteService):ViewModel() {
+class MainScreenViewModel(private var noteService: NoteService):ViewModel() {
 
     private val _state = MutableLiveData<MainScreenState>()
     val state:LiveData<MainScreenState> = _state
@@ -20,7 +22,7 @@ class MainScreenViewModel(private var noteService:NoteService):ViewModel() {
         _state.value = _state.value?.copy(loading = true, search = s)
         viewModelScope.launch {
             try {
-                withTimeout(10000){
+                withTimeout(15000){
                     var notes = noteService.getNotes(s.lowercase())
                     operationResult("00",notes)
                 }

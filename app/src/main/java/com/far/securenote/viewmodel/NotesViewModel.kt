@@ -3,11 +3,13 @@ package com.far.securenote.viewmodel
 import androidx.lifecycle.*
 import com.far.securenote.contants.Colors
 import com.far.securenote.model.*
+import com.far.securenote.model.services.NoteService
+import com.far.securenote.model.viewStates.NoteAddState
 import kotlinx.coroutines.*
 import java.util.UUID
 
 
-class NotesViewModel(private val noteService: NoteService,note:Note?): ViewModel() {
+class NotesViewModel(private val noteService: NoteService, note:Note?): ViewModel() {
 
     private var _state = MutableLiveData<NoteAddState>()
     val state:LiveData<NoteAddState> = _state
@@ -112,7 +114,7 @@ class NotesViewModel(private val noteService: NoteService,note:Note?): ViewModel
             "90" -> OperationResult("90","cancelled")
             else -> OperationResult("99",message)
         }
-        val newState:NoteAddState = _state.value!!.copy(loading = false,operationResult = operationResult)
+        val newState: NoteAddState = _state.value!!.copy(loading = false,operationResult = operationResult)
         _state.postValue(newState)
     }
 

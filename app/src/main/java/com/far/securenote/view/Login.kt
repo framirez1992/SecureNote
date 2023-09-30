@@ -9,17 +9,18 @@ import com.far.securenote.R
 import com.far.securenote.common.BiometricManager
 import com.far.securenote.databinding.ActivityLoginBinding
 import com.far.securenote.view.common.BaseActivity
+import javax.inject.Inject
 
 class Login : BaseActivity() {
     private lateinit var _binding:ActivityLoginBinding
-    private lateinit var biometricManager:BiometricManager
+    @Inject lateinit var biometricManager:BiometricManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(_binding.root)
 
-        biometricManager = presentationModule.biometricManager
+        presentationComponent.inject(this)
         biometricManager.setListeners(object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int,errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)

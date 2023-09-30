@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.MainScreen"
     android:paddingTop="40dp"
-    android:background="@color/purple_500"
+    android:background="@color/primary"
     android:orientation="vertical">
 
 
@@ -48,7 +48,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               app:icon="@drawable/baseline_search"
-              app:iconColor="@color/purple_500"
+              app:iconColor="@color/primary"
               app:iconBackground="@color/white"
               app:shape="STANDARD"
               app:size="MEDIUM"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             app:icon="@drawable/baseline_add"
             app:iconColor="@color/white"
-            app:iconBackground="@color/purple_500"
+            app:iconBackground="@color/primary"
             app:size="LARGE"
             app:shape="ROUNDED"
             android:layout_alignParentEnd="true"

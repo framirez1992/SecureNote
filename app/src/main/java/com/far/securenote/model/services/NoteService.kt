@@ -1,11 +1,12 @@
-package com.far.securenote.model
+package com.far.securenote.model.services
 
+import com.far.securenote.model.Note
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
 class NoteService(private val db:FirebaseFirestore) {
 
-    fun insertNote(note:Note){//Save local until the device has an internet connection
+    fun insertNote(note: Note){//Save local until the device has an internet connection
         val notesRef = db.collection("notes")
         notesRef.document().set(note)
     }
@@ -20,7 +21,7 @@ class NoteService(private val db:FirebaseFirestore) {
        batch.commit().await()
     }
 
-    fun updateNote(note:Note){//Save local until the device has an internet connection
+    fun updateNote(note: Note){//Save local until the device has an internet connection
         val documentReference = db.document("notes/${note.docRef}")
         documentReference.update(
             mapOf(
@@ -30,7 +31,7 @@ class NoteService(private val db:FirebaseFirestore) {
         ))
     }
 
-    fun deleteNote(note:Note){//Save local until the device has an internet connection
+    fun deleteNote(note: Note){//Save local until the device has an internet connection
         val documentReference = db.document("notes/${note.docRef}")
         documentReference.delete()
     }

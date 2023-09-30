@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:icon="@drawable/baseline_save"
             app:iconColor="@color/white"
-            app:iconBackground="@color/purple_500"
+            app:iconBackground="@color/primary"
             app:size="MEDIUM"
             app:shape="STANDARD"
             android:visibility="visible"

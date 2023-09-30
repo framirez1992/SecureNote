@@ -12,12 +12,13 @@ import com.far.securenote.common.ScreenNavigator
 import com.far.securenote.contants.Colors
 import com.far.securenote.databinding.FragmentNotesBinding
 import com.far.securenote.model.Note
-import com.far.securenote.model.NoteService
+import com.far.securenote.model.services.NoteService
 import com.far.securenote.model.OperationResult
 import com.far.securenote.utils.ColorUtils
 import com.far.securenote.view.common.BaseFragment
 import com.far.securenote.viewmodel.NotesViewModel
 import com.google.android.material.snackbar.Snackbar
+import javax.inject.Inject
 
 class Notes : BaseFragment() {
 
@@ -26,8 +27,8 @@ class Notes : BaseFragment() {
     private lateinit var _binding: FragmentNotesBinding
     private lateinit var viewModel:NotesViewModel
 
-    private lateinit var noteService: NoteService
-    private lateinit var screenNavigator:ScreenNavigator
+    @Inject lateinit var noteService: NoteService
+    @Inject lateinit var screenNavigator:ScreenNavigator
 
 
     companion object {
@@ -46,8 +47,7 @@ class Notes : BaseFragment() {
         arguments?.let {
         }
 
-        noteService = presentationModule.noteService
-        screenNavigator = presentationModule.screenNavigator
+        presentationComponent.inject(this)
         viewModel =ViewModelProvider(this, NotesViewModel.NoteAddViewModelFactory(noteService,currentNote))[NotesViewModel::class.java]
     }
 

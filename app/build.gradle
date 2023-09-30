@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-    //id 'kotlin-kapt'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -26,16 +26,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
     buildFeatures{
         viewBinding true
     }
-
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {
@@ -56,8 +58,30 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation 'com.google.firebase:firebase-firestore-ktx:24.8.1'
-    //api 'com.google.dagger:dagger:2.28.3'
-   //kapt 'com.google.dagger:dagger-compiler:2.28.3'
+
+    //implementation 'com.google.dagger:dagger:2.42'
+    //kapt 'com.google.dagger:dagger-compiler:2.42'
+    //kapt 'com.google.dagger:dagger-android-processor:2.15'
+    //kapt 'com.google.dagger:dagger-compiler:2.42'
+
+
+    //xxxxxxxxxxxxxxxxxxxx
+    //dagger2
+    api 'com.google.dagger:dagger:2.42'
+    api 'com.google.dagger:dagger-android:2.24'
+
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
+    kapt 'com.google.dagger:dagger-compiler:2.24'
+
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
+    kapt 'com.google.dagger:dagger-android-processor:2.24'
+
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.inject:javax.inject:1'
+    //xxxxxxxxxxxxxxxxxxxx
+
+
+
 
     implementation 'com.google.code.gson:gson:2.10.1'
 

@@ -2,11 +2,8 @@ package com.far.securenote.view
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
@@ -14,21 +11,22 @@ import androidx.lifecycle.lifecycleScope
 import com.far.securenote.R
 import com.far.securenote.common.FileManager
 import com.far.securenote.databinding.ActivityBulkInsertNoteBinding
-import com.far.securenote.model.BulkInsertState
-import com.far.securenote.model.NoteService
+import com.far.securenote.model.viewStates.BulkInsertState
+import com.far.securenote.model.services.NoteService
 import com.far.securenote.view.common.BaseActivity
 import com.far.securenote.viewmodel.BulkInsertViewModel
-import com.far.securenote.viewmodel.NotesViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class BulkInsertNote : BaseActivity() {
 
     private lateinit var _binding:ActivityBulkInsertNoteBinding
 
-    private lateinit var viewModel:BulkInsertViewModel
-    private lateinit var noteService: NoteService
 
-    private lateinit var fileManager: FileManager
+    @Inject lateinit var noteService: NoteService
+    @Inject lateinit var fileManager: FileManager
+
+    private lateinit var viewModel:BulkInsertViewModel
     private lateinit var activityResultLauncher:ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +34,9 @@ class BulkInsertNote : BaseActivity() {
         _binding = ActivityBulkInsertNoteBinding.inflate(layoutInflater)
         setContentView(_binding.root)
 
-        noteService = presentationModule.noteService
+        presentationComponent.inject(this)
         viewModel =ViewModelProvider(this, BulkInsertViewModel.BulkInsertViewModelFactory(noteService))[BulkInsertViewModel::class.java]
-        fileManager = presentationModule.fileManager
+
 
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             // Handle the Activity result.
@@ -92,7 +90,7 @@ class BulkInsertNote : BaseActivity() {
     }
 
 
-    private fun setStatus (status:BulkInsertState){
+    private fun setStatus (status: BulkInsertState){
         val message:String
         val color:Int
         if(status.loading){

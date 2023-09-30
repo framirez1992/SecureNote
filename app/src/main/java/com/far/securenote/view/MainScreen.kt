@@ -5,14 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.far.securenote.R
 import com.far.securenote.common.ScreenNavigator
 import com.far.securenote.databinding.FragmentMainScreenBinding
-import com.far.securenote.model.NoteService
+import com.far.securenote.model.services.NoteService
+import com.far.securenote.model.OperationResult
+import com.far.securenote.view.adapters.NoteAdapter
 import com.far.securenote.view.common.BaseFragment
 import com.far.securenote.viewmodel.MainScreenViewModel
+import javax.inject.Inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,13 +33,12 @@ class MainScreen : BaseFragment() {
     private lateinit var _binding:FragmentMainScreenBinding
     private lateinit var viewModel:MainScreenViewModel
 
-    private lateinit var noteService:NoteService
-    private lateinit var screenNavigator: ScreenNavigator
+    @Inject lateinit var noteService: NoteService
+    @Inject lateinit var screenNavigator: ScreenNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        screenNavigator = presentationModule.screenNavigator
-        noteService = presentationModule.noteService
+        presentationComponent.inject(this)
         viewModel = ViewModelProvider(this, MainScreenViewModel.MainScreenViewModelFactory(noteService))[MainScreenViewModel::class.java]
     }
 
@@ -78,6 +81,7 @@ class MainScreen : BaseFragment() {
             }
 
             enableViews(!it.loading)
+            processOperationResul(it.operationResult)
         }
     }
 
@@ -85,6 +89,14 @@ class MainScreen : BaseFragment() {
         _binding.btnSearch.isEnabled = enable
         _binding.etSearch.isEnabled = enable
         _binding.rv.isEnabled = enable
+    }
+
+    private fun processOperationResul(operation: OperationResult?){
+        if(operation != null){
+            if (operation.code == "01" || operation.code == "99") {//only errors and timeouts
+                Toast.makeText(context,operation.message, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     companion object {

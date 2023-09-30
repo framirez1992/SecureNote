@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SecureNote</string>
+    <string name="app_name">Secure Notes</string>
     <string name="login">Login</string>
     <string name="unknown_error">Unknown error</string>
     <string name="biometric_error_security_update_required">Biometric features are unavailable because security vulnerabilities has been discovered in one or more hardware sensors</string>
@@ -24,4 +24,6 @@
     <string name="file_load_error">Something went wrong, Please check the selected file</string>
     <string name="bonus_screen">Bonus Screen</string>
     <string name="notes_batch_insert">Notes batch insert</string>
+    <string name="tap_here_to_start">Tap here to start</string>
+
 </resources>

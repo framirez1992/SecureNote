@@ -3,6 +3,8 @@ package com.far.securenote.viewmodel
 import androidx.lifecycle.*
 import com.far.securenote.contants.Colors
 import com.far.securenote.model.*
+import com.far.securenote.model.services.NoteService
+import com.far.securenote.model.viewStates.BulkInsertState
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers

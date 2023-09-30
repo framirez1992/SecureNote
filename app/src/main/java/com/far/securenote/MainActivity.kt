@@ -9,16 +9,19 @@ import com.far.securenote.common.ScreenNavigator
 import com.far.securenote.databinding.ActivityMainBinding
 import com.far.securenote.view.MainScreen
 import com.far.securenote.view.common.BaseActivity
+import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
 
     private lateinit var _binding:ActivityMainBinding
-    private lateinit var screenNavigator:ScreenNavigator
+
+    @Inject lateinit var screenNavigator:ScreenNavigator
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
-        screenNavigator = presentationModule.screenNavigator
+
+        presentationComponent.inject(this)
 
         if (savedInstanceState == null) {
             screenNavigator.MainScren(_binding.frame.id)

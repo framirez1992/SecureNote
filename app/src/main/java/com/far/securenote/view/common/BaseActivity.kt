@@ -9,11 +9,10 @@ import com.far.securenote.common.dependencyInjection.presentation.PresentationMo
 
 open class BaseActivity: AppCompatActivity() {
 
-    private val applicationComponent get() = (application as MyApplication).applicationModule
+    private val applicationComponent get() = (application as MyApplication).applicationComponent
     //for fragments
     val activityComponent: ActivityComponent by lazy{
         applicationComponent.newActivityComponent(ActivityModule(this))
-
     }
 
     protected val presentationComponent: PresentationComponent by lazy{

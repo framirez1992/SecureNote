@@ -8,10 +8,10 @@ import com.far.securenote.common.dependencyInjection.application.DaggerApplicati
 open class MyApplication: Application() {
 
 
-    lateinit var applicationModule: ApplicationComponent
+    lateinit var applicationComponent: ApplicationComponent
 
     override fun onCreate() {
-        applicationModule =  DaggerApplicationComponent.builder().
+        applicationComponent =  DaggerApplicationComponent.builder().
         applicationModule(ApplicationModule(this))
             .build()
         super.onCreate()

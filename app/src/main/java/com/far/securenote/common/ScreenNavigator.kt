@@ -9,7 +9,7 @@ import com.far.securenote.view.common.BaseActivity
 import com.far.securenote.view.common.BaseFragment
 
 class ScreenNavigator(
-    var baseActivity: BaseActivity
+    private val baseActivity: BaseActivity
 ) {
 
     private val activity get() = baseActivity

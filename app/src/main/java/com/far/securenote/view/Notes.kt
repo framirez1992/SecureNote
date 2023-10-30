@@ -116,7 +116,7 @@ class Notes : BaseFragment() {
 
     }
     private fun initObservers(){
-        viewModel.state.observe(this){
+        viewModel.state.observe(viewLifecycleOwner){
             processOperationResul(it.operationResult)
             _binding.btnAddNote.setLoading(it.loading)
             _binding.btnBulkInsertNotes.setLoading(it.loading)
@@ -125,7 +125,7 @@ class Notes : BaseFragment() {
             enableViews(!it.loading)
         }
 
-        viewModel.currentNote.observe(this){
+        viewModel.currentNote.observe(viewLifecycleOwner){
                 changeNoteColor(ColorUtils.colorByName(it!!.color))
                 _binding.etTitle.setText(it!!.title)
                 _binding.etBody.setText(it!!.body)
